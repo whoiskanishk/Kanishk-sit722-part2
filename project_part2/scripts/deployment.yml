@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: book-catalog-deployment
+  name: my-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: book-catalog
+      app: my-app
   template:
     metadata:
       labels:
-        app: book-catalog
+        app: my-app
     spec:
       containers:
-      - name: book-catalog
-        image: book_catalog:latest
+      - name: my-app-container
+        image: nginx:1.17.1
         ports:
-        - containerPort: 5000
+        - containerPort: 80
